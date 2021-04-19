@@ -1,0 +1,29 @@
+.search-results {
+    width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.results-item {
+    background: rgb(174,220,238);
+    background: linear-gradient(90deg, rgba(174,220,238,1) 0%, rgba(148,187,233,1) 100%);
+    padding: 10px 20px; 
+    margin-bottom: 15px; 
+    border-radius: 25px;
+}
+
+.name-item {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.phone-item {
+    font-size: 12px;
+}
+
+.no-results {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}

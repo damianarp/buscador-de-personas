@@ -15,8 +15,9 @@
 }
 .search-box-input {
 	border-radius: 25px;
-	padding: 5px;
+	padding: 5px 18px;
 	width: 300px;
+	outline: none;
 }
 .search-box-buttons {
 	display: flex;
@@ -26,19 +27,25 @@
 .buscar-button {
 	width: 70px;
 	padding: 5px;
-	background-color: lavender;
+	background: rgb(174,220,238);
+    background: linear-gradient(90deg, rgba(174,220,238,1) 0%, rgba(148,187,233,1) 100%);
 	margin-left: 10px;
 	border: none;
 	border-radius: 25px;
 	font-family: arial;
+	outline: none;
+	cursor: pointer;
 }
 
 .cerrar-button {
 	width: 70px;
 	padding: 5px;
-	background-color: goldenrod;
+	background: rgb(238,174,0);
+	background: linear-gradient(148deg, rgba(238,174,0,1) 0%, rgba(238,174,0,1) 48%, rgba(200,136,21,1) 100%);
 	margin-left: 10px;
 	border: none;
 	border-radius: 25px;
 	font-family: arial;
+	outline: none;
+	cursor: pointer;
 }

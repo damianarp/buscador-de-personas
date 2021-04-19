@@ -1,9 +1,13 @@
 import { useState } from "react";
 import "./style.css";
 
-export default function SearchBox() {
+export default function SearchBox({onSearch, onClose, isSearching}) {
 
 	const [searchText, setSearchText] = useState("");
+	const handleSearchClick = () => {
+		setSearchText("");
+		onClose();
+	};
 	
 	return (
 		<div className="search-box">
@@ -16,8 +20,16 @@ export default function SearchBox() {
 					onChange={({target: {value}}) => setSearchText(value)}
 				/>
 			</label>
-			<button className="buscar-button">Buscar</button>
-			<button className="cerrar-button">Cerrar</button>
+			<button 
+				className="buscar-button"
+				onClick={() => onSearch(searchText)}
+				disabled={!searchText.length}
+			>Buscar</button>
+			{isSearching && <button 
+				className="cerrar-button"
+				onClick={handleSearchClick}
+				disabled={!searchText.length}
+			>Cerrar</button>}
 			</div>
 		</div>
 	);    
