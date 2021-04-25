@@ -1,14 +1,25 @@
 import SearchBox from './components/SearchBox/index';
 import SearchResults from './components/SearchResults/index';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-import data from "../../data/users.json";
 import "./style.css";
 
 export default function Search() {
 
 	const [isAtTop, setIsAtTop] = useState(false);
 	const [results, setResults] = useState([]);
+	const [data, setData] = useState([]);
+
+	//Utilizamos useEffect, un metodo que viene de React, para hacer el llamado a la API
+	useEffect(()=>{
+		const getUsers = async () => {
+			const response = await fetch('https://jsonplaceholder.typicode.com/users');
+			const data = await response.json();
+			
+			setData(data);
+		};
+		getUsers().catch(null);
+	}, []);
 
 	const handleCloseSearch = () => {
 		setIsAtTop(false);
