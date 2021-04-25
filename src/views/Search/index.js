@@ -1,6 +1,7 @@
-import SearchBox from './components/SearchBox/index';
-import SearchResults from './components/SearchResults/index';
+import SearchBox from "./components/SearchBox/index";
+import SearchResults from "./components/SearchResults/index";
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 import "./style.css";
 
@@ -10,13 +11,26 @@ export default function Search() {
 	const [results, setResults] = useState([]);
 	const [data, setData] = useState([]);
 
-	//Utilizamos useEffect, un metodo que viene de React, para hacer el llamado a la API
+	// Utilizamos useEffect, un metodo que viene de React, para hacer el llamado a la API
 	useEffect(()=>{
 		const getUsers = async () => {
-			const response = await fetch('https://jsonplaceholder.typicode.com/users');
-			const data = await response.json();
+			//Hacemos un try-catch para atrapar los posibles errores.
+			try {
+				// Opción 1 - Utilizamos el método fetch para hacer el llamado a la API.
+
+				/*const response = await fetch("https://jsonplaceholder.typicode.com/users");
+				const data = await response.json();
+
+				setData(data);*/
+
+				// Opción 2 - Utilizamos la librería Axios (previamente instalada e importada) para hacer el llamado a la API.
+				const {data} = await axios.get("https://jsonplaceholder.typicode.com/users");
+				setData(data);
+			} catch (error) {
+				console.error(error);
+			}
 			
-			setData(data);
+
 		};
 		getUsers().catch(null);
 	}, []);
